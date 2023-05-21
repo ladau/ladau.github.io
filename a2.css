@@ -1,0 +1,150 @@
+body {
+    background: #121212;
+    color: #fff;
+    display: flex;/*способность гибкого элемента растягиваться или сжиматься для заполнения собой доступного свободного пространства.*/
+    font-weight: bold;/*вес или жирность шрифта*/
+    font-family: monospace;
+    font-size: 4em;/*размер от установленного по умолчанию*/
+    height: 100vh;/*высота экрана*/
+    overflow: hidden; /*контейнер для изображения переполненного элемента*/
+}
+
+.bottle {
+    margin: auto;/*центруем со всех сторон*/
+    perspective: 25em;/*3д объем*/
+    position: relative;/*месторасположение среди остальных документов, настройки относительно себя*/
+    width: 11em;
+    height: 11em;
+}
+
+.container,
+.latters {
+    position: absolute;/*относительно ближайшего предка*/
+    top: 50%;/*расстояние между верхним гранью элемента и верхним гранью потребительского контейнера.*/
+    left: 0;
+    transform-style: preserve-3d;/*будут ли дочерние элементы элемента расположены в трехмерном пространстве или сплющены в плоскости элемента.*/
+}
+
+.container {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    transform: rotateZ(90deg) rotateX(-90deg); /*Количество движения заданным углом; если положительно, будет движение по часовой стрелке, если оно отрицательное, оно будет против*/
+    animation: spin 1s linear infinite;/*добавить в конце*/
+}
+
+.latters {
+    display: flex;
+}
+/*делим полукруг(180) на 6 частей, начиная с нуля, получаем 36 градусов*/
+.latters:nth-child(1) {
+    transform: translateY(-50%)rotateX(0deg);
+}
+
+.latters:nth-child(2) {
+    transform: translateY(-50%)rotateX(36deg);
+}
+
+.latters:nth-child(3) {
+    transform: translateY(-50%)rotateX(72deg);
+}
+
+.latters:nth-child(4) {
+    transform: translateY(-50%)rotateX(108deg);
+}
+
+.latters:nth-child(5) {
+    transform: translateY(-50%)rotateX(144deg);
+}
+
+.latters:nth-child(6) {
+    transform: translateY(-50%)rotateX(180deg);
+}
+/*общий стиль для всех спавнов*/
+.latters span {
+    backface-visibility: hidden;/*определяет, будет ли видна обратная сторона элемента, когда он повернут к пользователю*/
+    display: inline-block;/*Элемент создает один или несколько встроенных блоков элементов, которые не создают разрывов строк до или после самих себя*/
+    width: 1ch;/*Представляет ширину символа "0"*/
+}
+/*начинаем формировать сау фигуру, подгонять значения*/
+.latters span:nth-child(1) {
+    transform: translateZ(2ch) rotateY(0deg) scaleY(1);/*значения для П*/
+}
+
+.latters span:nth-child(2) {
+    transform: translateZ(2ch) rotateY(0deg) scaleY(1);/*значения для Е*/
+}
+
+.latters span:nth-child(3) {
+    transform: translateZ(2.25ch) rotateY(-30deg) scaleY(1);/*значения для Й*/
+}
+
+.latters span:nth-child(4) {
+    transform: translateZ(2.75ch) rotateY(-30deg) scaleY(1.3);/*значения для Т*/
+}
+
+.latters span:nth-child(5) {
+    transform: translateZ(3.25ch) rotateY(-30deg) scaleY(1.5);/*значения для Е*/
+}
+
+.latters span:nth-child(6) {
+    transform: translateZ(3.5ch) rotateY(0deg) scaleY(1.75);/*значения для пробела*/
+}
+
+.latters span:nth-child(7) {
+    transform: translateZ(3.5ch) rotateY(0deg) scaleY(1.45);/*значения для Д*/
+}
+
+.latters span:nth-child(8) {
+    transform: translateZ(3.5ch) rotateY(0deg) scaleY(1.75);/*значения для Е*/
+}
+
+.latters span:nth-child(9) {
+    transform: translateZ(3.3ch) rotateY(15deg) scaleY(1.5);/*значения для Т*/
+}
+
+.latters span:nth-child(10) {
+    transform: translateZ(3ch) rotateY(15deg) scaleY(1.4);/*значения для И*/
+}
+
+.latters span:nth-child(11) {
+    transform: translateZ(2.8ch) rotateY(0deg) scaleY(1.3);/*значения для Пробела*/
+}
+
+.latters span:nth-child(12) {
+    transform: translateZ(2.8ch) rotateY(0deg) scaleY(1.3);/*значения для М*/
+}
+
+.latters span:nth-child(13) {
+    transform: translateZ(3ch) rotateY(-15deg) scaleY(1.4);/*значения для О*/
+}
+
+.latters span:nth-child(14) {
+    transform: translateZ(3.3ch) rotateY(-15deg) scaleY(1.5);/*значения для Л*/
+}
+
+.latters span:nth-child(15) {
+    transform: translateZ(3.5ch) rotateY(0deg) scaleY(1.75);/*значения для О*/
+}
+
+.latters span:nth-child(16) {
+    transform: translateZ(3.4ch) rotateY(15deg) scaleY(1.75);/*значения для К*/
+}
+
+.latters span:nth-child(17) {
+    transform: translateZ(3.2ch) rotateY(15deg) scaleY(1.5);/*значения для О*/
+}
+
+.latters span:nth-child(18) {
+    transform: translateZ(3ch) rotateY(0deg) scaleY(1.3);/*значения для !*/
+}
+/*управляет промежуточными шагами в последовательности анимации CSS*/
+@keyframes spin {
+    from {
+        transform: rotateZ(90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: rotateZ(90deg) rotateX(-54deg);
+    }
+}
